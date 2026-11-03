@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "intelligent-invoice-processing"
+version = "0.1.0"
+description = "Human-reviewed invoice processing API with replaceable Azure and finance adapters"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.110,<1",
+  "uvicorn[standard]>=0.27,<1",
+  "python-multipart>=0.0.9",
+  "pydantic>=2.6,<3",
+  "azure-storage-blob>=12.19,<13",
+  "azure-ai-documentintelligence>=1.0.0,<2",
+  "azure-identity>=1.15,<2",
+  "langchain>=0.2,<1",
+  "langchain-openai>=0.1,<2",
+  "SQLAlchemy>=2.0,<3",
+  "psycopg[binary]>=3.1,<4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "httpx>=0.27,<1", "ruff>=0.4,<1"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

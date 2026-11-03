@@ -1,0 +1,11 @@
+.azure/
+.env
+.git/
+.pytest_cache/
+.ruff_cache/
+.venv/
+__pycache__/
+data/
+tests/
+*.py[cod]
+*.sqlite3
